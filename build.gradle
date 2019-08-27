@@ -9,8 +9,18 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'maven-publish'
 }
-
+publishing {
+    publications {
+        maven(MavenPublication) {
+            group = 'org.siraya'
+            artifactId = 'testcontainer-redis'
+            version = '0.1'
+            from components.java
+        }
+    }
+}
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
